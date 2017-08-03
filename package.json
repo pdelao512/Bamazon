@@ -17,7 +17,12 @@
   },
   "homepage": "https://github.com/pdelao512/Bamazon#readme",
   "dependencies": {
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
     "inquirer": "^3.2.1",
-    "save": "^2.3.1"
+    "mysql": "github:mysqljs/mysql",
+    "prompt": "^1.0.0",
+    "save": "^2.3.1",
+    "sql": "^0.77.0"
   }
 }
