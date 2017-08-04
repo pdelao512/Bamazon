@@ -4,9 +4,9 @@ var inquirer = require('inquirer');
 var prompt = require('prompt');
 // var colors = require('colors/safe');
 var Table = require('cli-table');
-// var chalk = require('chalk');
+var chalk = require('chalk');
 // var firstRun = require('first-run');
-// var figlet = require('figlet');
+var figlet = require('figlet');
 
 //sql connection
 var connection = mysql.createConnection({
@@ -15,6 +15,19 @@ var connection = mysql.createConnection({
     user: 'root',
     password: 'root',
     database: 'Bamazon',
+});
+
+figlet.text(' Bamazon', {
+    font: 'doh',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+}, function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(chalk.rgb(66,212,244)(data));
 });
 
 //connect to mysql database and run the managerPrompt function

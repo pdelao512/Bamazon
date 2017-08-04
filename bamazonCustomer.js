@@ -21,7 +21,7 @@ var connection = mysql.createConnection({
 var shoppingCart = [];
 var totalCost = 0;
 
-
+// Use figlet to create Bamazon logo
 figlet.text(' Bamazon', {
     font: 'doh',
     horizontalLayout: 'default',
@@ -265,7 +265,7 @@ function updateDB(grandTotal) {
             } else {
                 //if no items remain in the shoppingCart alert the user of the total and exit
                 grandTotal = grandTotal.toFixed(2);
-                console.log(chalk.blueBright('Thank you for your purchase!'));
+                console.log(chalk.blueBright('Thank You! Come Again!'));
                 console.log(chalk.greenBright('Your total today was $' + grandTotal));
                 connection.end();
             }
