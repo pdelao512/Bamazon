@@ -20,6 +20,7 @@
     "body-parser": "^1.17.2",
     "chalk": "^2.0.1",
     "cli-table": "^0.3.1",
+    "cli-table2": "^0.2.0",
     "colors": "^1.1.2",
     "figlet": "^1.2.0",
     "first-run": "^1.2.0",
