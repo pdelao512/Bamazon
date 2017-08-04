@@ -1,3 +1,5 @@
+CREATE DATABASE Bamazon;
+
 USE Bamazon;
 
 CREATE TABLE Products (
@@ -38,3 +40,26 @@ VALUES ('Martini Golf Plastic Tees 5-Pack', 'Sports & Outdoors', 7.37, 230);
 
 INSERT INTO Products (ProductName, DepartmentName, Price, StockQuantity)
 VALUES ('My Little Pony Aluminum Cake Pan', 'Home', 15.25, 15);
+
+CREATE TABLE Departments (
+    DepartmentID INTEGER(11) AUTO_INCREMENT NOT NULL,
+    DepartmentName VARCHAR(50) NOT NULL,
+    OverHeadCosts FLOAT(7, 2) NOT NULL,
+    TotalSales FLOAT(7, 2) NOT NULL,
+    PRIMARY KEY (DepartmentID)
+);
+
+INSERT INTO Departments (DepartmentName, OverHeadCosts, TotalSales)
+VALUES ('Electronics', 12000, 0);
+
+INSERT INTO Departments (DepartmentName, OverHeadCosts, TotalSales)
+VALUES ('Sports & Outdoors', 300, 0);
+
+INSERT INTO Departments (DepartmentName, OverHeadCosts, TotalSales)
+VALUES ('Toys and Games', 1400, 0);
+
+INSERT INTO Departments (DepartmentName, OverHeadCosts, TotalSales)
+VALUES ('Office Supplies', 300, 0);
+
+INSERT INTO Departments (DepartmentName, OverHeadCosts, TotalSales)
+VALUES ('Home', 8100, 0);
