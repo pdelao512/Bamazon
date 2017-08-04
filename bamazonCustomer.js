@@ -4,9 +4,9 @@ var inquirer = require('inquirer');
 var prompt = require('prompt');
 // var colors = require('colors/safe');
 var Table = require('cli-table');
-// var chalk = require('chalk');
+var chalk = require('chalk');
 // var firstRun = require('first-run');
-// var figlet = require('figlet');
+var figlet = require('figlet');
 
 //sql connection
 var connection = mysql.createConnection({
@@ -21,6 +21,20 @@ var connection = mysql.createConnection({
 var shoppingCart = [];
 var totalCost = 0;
 
+
+figlet.text(' Bamazon', {
+    font: 'doh',
+    horizontalLayout: 'default',
+    verticalLayout: 'default'
+}, function(err, data) {
+    if (err) {
+        console.log('Something went wrong...');
+        console.dir(err);
+        return;
+    }
+    console.log(chalk.rgb(66,212,244)(data));
+});
+
 //connect to mysql and then run the main function
 connection.connect(function(err) {
     if (err) throw err;
@@ -34,7 +48,12 @@ connection.connect(function(err) {
 function printItems(cb) {
     //new cli-table
     var table = new Table({
-        head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available']
+        head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available'],
+        style: {
+        	head: ["green"],
+        	compact: false,
+        	colAligns: ["center"],
+        }
     });
     //get all rows from the Products table
     connection.query('SELECT * FROM Products', function(err, res) {
@@ -84,7 +103,7 @@ function userSelectsItem() {
                         });
                     } else {
                         //if leave is selected exit the program
-                        console.log('Thank You! Come Again!');
+                        console.log(chalk.cyan('Thank You! Come Again!'));
                         connection.end();
                     }
                 });
@@ -123,7 +142,7 @@ function howManyItems(itemNames) {
                 return true
             } else {
                 //if we don't have that much in stock alert the user and ask for input again
-                console.log('\nOops! We only have ' + itemStock + ' of those in stock.');
+                console.log(chalk.magenta('\nOops! We only have ' + itemStock + ' of those in stock.'));
                 return false;
             }
         }
@@ -155,7 +174,7 @@ function checkout() {
         var grandTotal = 0;
         //show the user all of the items in their shoppingCart
         console.log('---------------------------------------------');
-        console.log('Here is your cart. Are you ready to checkout?');
+        console.log(chalk.blueBright('Here is your cart. Are you ready to checkout?'));
         for (var i = 0; i < shoppingCart.length; i++) {
             var item = shoppingCart[i].item;
             var amount = shoppingCart[i].amount;
@@ -197,7 +216,7 @@ function checkout() {
                 });
             } else {
                 //if leave is selected exit the program
-                console.log('Thank You! Come again!');
+                console.log(chalk.cyan('Thank You! Come again!'));
                 connection.end();
             }
         });
@@ -246,8 +265,8 @@ function updateDB(grandTotal) {
             } else {
                 //if no items remain in the shoppingCart alert the user of the total and exit
                 grandTotal = grandTotal.toFixed(2);
-                console.log('Thank you for your purchase!');
-                console.log('Your total today was $' + grandTotal);
+                console.log(chalk.blueBright('Thank you for your purchase!'));
+                console.log(chalk.greenBright('Your total today was $' + grandTotal));
                 connection.end();
             }
         });
@@ -270,7 +289,7 @@ function editCart() {
         choices: items
     }]).then(function(user) {
         if (user.choices.length === 0) {
-            console.log('Oops! You didn\'t select anything to edit!');
+            console.log(chalk.magenta('Oops! You didn\'t select anything to edit!'));
             checkout();
         } else {
             //run the editItem function and pass in the users selections as an argument
