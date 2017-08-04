@@ -16,7 +16,7 @@ var connection = mysql.createConnection({
     password: 'root',
     database: 'Bamazon',
 });
-
+// Use figlet to create Bamazon logo
 figlet.text(' Bamazon', {
     font: 'doh',
     horizontalLayout: 'default',
@@ -27,7 +27,7 @@ figlet.text(' Bamazon', {
         console.dir(err);
         return;
     }
-    console.log(chalk.rgb(66,212,244)(data));
+    console.log(chalk.rgb(224,212,51)(data));
 });
 
 //connect to mysql database and run the managerPrompt function
@@ -78,8 +78,14 @@ function managerPrompt() {
 function viewProductsForSale(cb) {
     //new cli-table
     var table = new Table({
-        head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available']
+        head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available'],
+        style: {
+          head: ["green"],
+          compact: false,
+          colAligns: ["center"],
+        }
     });
+    
     //get all rows from the Products table
     connection.query('SELECT * FROM Products', function(err, res) {
         if (err) throw err;
@@ -107,8 +113,14 @@ function viewLowInventory(cb) {
             } else {
                 //if some items do have StockQuantity less than 5 create a table to show those items
                 var table = new Table({
-                    head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available']
+                    head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available'],
+                    style: {
+                      head: ["green"],
+                      compact: false,
+                      colAligns: ["center"],
+                     }
                 });
+                
                 for (var i = 0; i < res.length; i++) {
                     table.push([res[i].ItemID, res[i].ProductName, res[i].DepartmentName, '$' + res[i].Price.toFixed(2), res[i].StockQuantity]);
                 }

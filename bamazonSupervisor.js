@@ -28,7 +28,7 @@ figlet.text(' Bamazon', {
         console.dir(err);
         return;
     }
-    console.log(chalk.rgb(66,212,244)(data));
+    console.log(chalk.rgb(101,57,181)(data));
 });
 
 //connect to mysql and run executivePrompt function
@@ -61,8 +61,14 @@ function executivePrompt() {
 function viewProductSalesByDepartment() {
     //new cli-table
     var table = new Table({
-        head: ['ID Number', 'Department', 'Overhead Costs', 'Total Sales', 'Total Profit']
+        head: ['ID Number', 'Department', 'Overhead Costs', 'Total Sales', 'Total Profit'],
+        style: {
+            head: ["cyan"],
+            compact: false,
+            colAligns: ["center"],
+        }
     });
+    
     //get all the rows from the departments table
     connection.query('SELECT * FROM Departments', function(err, res) {
         if (err) throw err;

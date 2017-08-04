@@ -50,7 +50,7 @@ function printItems(cb) {
     var table = new Table({
         head: ['ID Number', 'Product', 'Department', 'Price', 'Quantity Available'],
         style: {
-        	head: ["green"],
+        	head: ["magenta"],
         	compact: false,
         	colAligns: ["center"],
         }
@@ -88,7 +88,7 @@ function userSelectsItem() {
         }]).then(function(user) {
             //alert the user if they did not select anything and run function again
             if (user.choices.length === 0) {
-                console.log('Oops you didn\'t select anything!');
+                console.log(chalk.red('Oops you didn\'t select anything!'));
                 //if the user doesn't select anything ask if they want to keep shopping or leave
                 inquirer.prompt([{
                     name: 'choice',
@@ -317,7 +317,7 @@ function editItem(itemsToEdit) {
                 for (var i = 0; i < shoppingCart.length; i++) {
                     if (shoppingCart[i].item === item) {
                         shoppingCart.splice(i, 1);
-                        console.log('Updated!');
+                        console.log(chalk.yellow('Updated!'));
                     }
                 }
                 //run the editItem function to check if there are more items to edit
@@ -334,7 +334,7 @@ function editItem(itemsToEdit) {
                         if (shoppingCart[i].item === item) {
                             shoppingCart[i].amount = user.amount;
                             shoppingCart[i].total = shoppingCart[i].itemCost * user.amount;
-                            console.log('Updated!');
+                            console.log(chalk.yellow('Updated!'));
                         }
                     }
                     //run the editItem function to check if there are more items to edit
