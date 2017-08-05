@@ -267,7 +267,7 @@ function updateDB(grandTotal) {
                 //if no items remain in the shoppingCart alert the user of the total and exit
                 grandTotal = grandTotal.toFixed(2);
                 console.log(chalk.blueBright('Thank You! Come Again!'));
-                console.log(chalk.greenBright('Your total today was $' + grandTotal));
+                console.log(chalk.greenBright('Your total is $' + grandTotal));
                 connection.end();
             }
         });
