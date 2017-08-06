@@ -44,12 +44,12 @@ Priscilla De La O GitHub
 
 Technologies Used:
 
-Javascript
-nodeJS
-MySQL
-npm packages:
-mysql
-prompt
-chalk
-cli-table2
-figlet
+Javascript, 
+nodeJS, 
+MySQL, 
+npm packages, 
+mysql, 
+prompt, 
+chalk, 
+cli-table2, 
+figlet 
