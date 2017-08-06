@@ -9,9 +9,17 @@ The Bamazon Customer Portal allows users to view the current items available for
 
 https://github.com/pdelao512/Bamazon/blob/master/img/bamazonCustomer.js_Screen_Shot.png?raw=true
 
-Bamazon/img/bamazonCustomer.js_Screen_Shot.png
+Bamazon Manager Portal
 
-/Users/priscilla/Desktop/bamazonManager.js_Screen_Shot.png
+The Bamazon Customer Portal allows users to view and edit the inventory of the store. The user will be prompted to choose from the following options:
 
-/Users/priscilla/Desktop/bamazonSupervisor.js_Screen_Shot.png
+View products for sale
+View low inventory
+Add to inventory
+Add a new product
+Manager Options 1 & 2
+
+The first option allows the user to see the list of products that are currently for sale, what department the item belongs to, the price of the product and how much stock is left for that product.
+
+The second option allows the user to see a list of all inventory items that have less than 5 items in stock. If there are no products that meet this criteria, the user will see an empty table.
 
