@@ -23,3 +23,5 @@ The first option allows the user to see the list of products that are currently 
 
 The second option allows the user to see a list of all inventory items that have less than 5 items in stock. If there are no products that meet this criteria, the user will see an empty table.
 
+https://github.com/pdelao512/Bamazon/blob/master/img/bamazonManager.js_Screen_Shot.png?raw=true
+
