@@ -32,5 +32,8 @@ The last option allows the user to add a new product to the inventory. Prompts a
 
 https://github.com/pdelao512/Bamazon/blob/master/img/bamazonManager.js_Screen_Shot.png?raw=true
 
+Bamazon Supervisor Portal
+
+The Bamazon Supervisor Portal allows users to view the total profits of the store categorized by department and add new departments.
 
 https://github.com/pdelao512/Bamazon/blob/master/img/bamazonSupervisor.js_Screen_Shot.png?raw=true
