@@ -37,3 +37,19 @@ Bamazon Supervisor Portal
 The Bamazon Supervisor Portal allows users to view the total profits of the store categorized by department and add new departments.
 
 https://github.com/pdelao512/Bamazon/blob/master/img/bamazonSupervisor.js_Screen_Shot.png?raw=true
+
+Contributors:
+
+Priscilla De La O GitHub
+
+Technologies Used:
+
+Javascript
+nodeJS
+MySQL
+npm packages:
+mysql
+prompt
+chalk
+cli-table2
+figlet
